@@ -7,12 +7,12 @@ function setup() {
   var canvas = createCanvas(720, 400);
   canvas.parent('sketch-holder');
   background(240);
-
+  //left bar
   rectMode(CORNER); // Default rectMode is CORNER
   fill(255, 0, 0); // Set fill to red
   //rect (x, y, x.width, y.width )
   rect(10, 10, 200, 30); // Draw white rect using CORNER mode
-
+  //right bar
   rectMode(CORNER); // Default rectMode is CORNER
   fill(255, 0, 0); // Set fill to red
   //rect (x, y, x.width, y.width )
