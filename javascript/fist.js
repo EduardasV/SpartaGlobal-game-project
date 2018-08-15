@@ -15,7 +15,6 @@ function Fist(x, y, enemy_x) {
 
   this.hits = function(player) {
     var d = dist(this.x, this.y, player.x, player.y);
-    console.log(d < this.r + player.r);
     if (d < this.r + player.r) {
       return true;
     } else {

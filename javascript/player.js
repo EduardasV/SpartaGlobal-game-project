@@ -38,9 +38,9 @@ function Player(xPos) {
   }
 
   this.losingPlayer = function(player_value) {
-    if (player_value == player1 && health < 1) {
+    if (player_value == player1 && this.health < 1) {
       score.player1[1] += 1;
-    } else if (player_value == player2 && health < 1) {
+    } else if (player_value == player2 && this.health < 1) {
       score.player2[1] += 1;
     }
     if (this.health == 0) {
