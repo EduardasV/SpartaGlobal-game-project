@@ -1,19 +1,26 @@
 var player1;
-var player2
+var player2;
 var fist1 = [];
 var fist2 = [];
-var player1_score = [0, 0];
-var player2_score = [0, 0];
+var player1_score = [];
+var player2_score = [];
+if (simpleStorage.get("player1")) {
+  player1_score = simpleStorage.get("player1");
+  player2_score = simpleStorage.get("player2");
+} else {
+  player1_score = [0, 0];
+  player2_score = [0, 0];
+}
 var score = {
   "player1": player1_score,
   "player2": player2_score
 }
+simpleStorage.set("player1", player1_score);
+simpleStorage.set("player2", player2_score);
 
 function setup() {
   var canvas = createCanvas(720, 400);
   canvas.parent('sketch-holder');
-
-  loadData();
 
   player1 = new Player(width / 4);
   player2 = new Player(width / 1.3);
@@ -52,7 +59,7 @@ function draw() {
     fist1[i].show();
     if (fist1[i].hits(player2)) {
       player1.reduceHealth(player2);
-      player1.winningPlayer(player1);
+      player1.winningPlayer(player2);
       player1.losingPlayer(player2);
     }
     fist1.splice(i, 1);

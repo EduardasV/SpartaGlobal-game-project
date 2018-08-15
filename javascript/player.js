@@ -30,21 +30,32 @@ function Player(xPos) {
   
   this.winningPlayer = function(player_value) {
     if (player_value == player1 && this.health < 1) {
-      score.player1[0] += 1;
-      console.log(score.player1[0]);
-    } else if (player_value == player2 && this.health < 1) {
       score.player2[0] += 1;
+      saveScore("player2");
+    } else if (player_value == player2 && this.health < 1) {
+      score.player1[0] += 1;
+      saveScore("player1");
     }
   }
 
   this.losingPlayer = function(player_value) {
     if (player_value == player1 && this.health < 1) {
       score.player1[1] += 1;
+      saveScore("player1");
     } else if (player_value == player2 && this.health < 1) {
       score.player2[1] += 1;
+      saveScore("player2");
     }
     if (this.health == 0) {
-      noLoop();
+      // noLoop();
+    }
+  }
+
+  function saveScore(key) {
+    if (key == "player1") {
+      simpleStorage.set(key, score.player1);
+    } else if (key == "player2") {
+      simpleStorage.set(key, score.player2);
     }
   }
 
