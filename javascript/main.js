@@ -2,6 +2,12 @@ var player1;
 var player2
 var fist1 = [];
 var fist2 = [];
+var player1_score = [0, 0];
+var player2_score = [0, 0];
+var score = {
+  "player1": player1_score,
+  "player2": player2_score
+}
 
 function setup() {
   var canvas = createCanvas(720, 400);
@@ -19,35 +25,42 @@ function draw() {
   var p3 = p2 + 20;
   var p4 = p3 + 20;
 
+  var player1_hp_width = 200 / (100 / player1.health);
+  if (player1_hp_width < 1) 
+    player1_hp_width = 0;
+  var player2_hp_width = 200 / (100 / player2.health);
+  if (player2_hp_width < 1) 
+    player2_hp_width = 0;
+  
   //left bar
   rectMode(CORNER); // Default rectMode is CORNER
   fill(255, 0, 0); // Set fill to red
   //rect (x, y, x.width, y.width )
-  var player1_hp_width = 200 / (100 / player1.health);
-  if (player1_hp_width < 1) 
-    player1_hp_width = 0;
-  rect(10, 10, player1_hp_width, 30); // Draw white rect using CORNER mode
+  rect(10, 30, player2_hp_width, 30); // Draw white rect using CORNER mode
   //right bar
   rectMode(CORNER); // Default rectMode is CORNER
   fill(255, 0, 0); // Set fill to red
   //rect (x, y, x.width, y.width )
-  var player2_hp_width = 200 / (100 / player2.health);
-  if (player2_hp_width < 1) 
-    player2_hp_width = 0;
-  rect(510, 10, player2_hp_width, 30); // Draw white rect using CORNER mode
+  rect(510 + (200 - player1_hp_width), 30, player1_hp_width, 30); // Draw white rect using CORNER mode
+
   player1.show();
   player2.show();
+
   for (var i = 0; i < fist1.length; i++) {
     fist1[i].show();
     if (fist1[i].hits(player2)) {
-      player2.reduceHealth();
+      player1.reduceHealth(player2);
+      player1.winningPlayer(player1);
+      player1.losingPlayer(player2);
     }
     fist1.splice(i, 1);
   }
   for (var i = 0; i < fist2.length; i++) {
     fist2[i].show();
     if (fist2[i].hits(player1)) {
-      player1.reduceHealth();
+      player2.reduceHealth(player1);
+      player2.winningPlayer(player1);
+      player2.losingPlayer(player1);
     }
     fist2.splice(i, 1);
   }

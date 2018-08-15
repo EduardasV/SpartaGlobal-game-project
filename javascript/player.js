@@ -20,7 +20,32 @@ function Player(xPos) {
     }
   }
 
-  this.reduceHealth = function() {
+  this.reduceHealth = function(enemy) {
     this.health -= 10;
+    if (this.x > enemy.x) 
+      enemy.move(-10);
+    else if (this.x < enemy.x) 
+      enemy.move(10);
+    }
+  
+  this.winningPlayer = function(player_value) {
+    if (player_value == player1 && this.health < 1) {
+      score.player1[0] += 1;
+      console.log(score.player1[0]);
+    } else if (player_value == player2 && this.health < 1) {
+      score.player2[0] += 1;
+    }
   }
+
+  this.losingPlayer = function(player_value) {
+    if (player_value == player1 && health < 1) {
+      score.player1[1] += 1;
+    } else if (player_value == player2 && health < 1) {
+      score.player2[1] += 1;
+    }
+    if (this.health == 0) {
+      noLoop();
+    }
+  }
+
 }

@@ -22,5 +22,4 @@ function Fist(x, y, enemy_x) {
       return false;
     }
   }
-
 }
