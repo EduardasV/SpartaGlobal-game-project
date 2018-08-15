@@ -46,9 +46,7 @@ function Player(xPos) {
       score.player2[1] += 1;
       saveScore("player2");
     }
-    if (this.health == 0) {
-      // noLoop();
-    }
+    if (this.health == 0) {}
   }
 
   function saveScore(key) {
