@@ -9,6 +9,10 @@ var score = {
   "player2": player2_score
 }
 
+function preload() {
+  data = loadJSON('saves/saved-data.json');
+}
+
 function setup() {
   var canvas = createCanvas(720, 400);
   canvas.parent('sketch-holder');
@@ -74,6 +78,7 @@ function draw() {
   } else if (keyIsDown(65)) {
     player1.move(-1);
   }
+  saveInformation(width / 2, height / 2);
 }
 
 function keyPressed() {

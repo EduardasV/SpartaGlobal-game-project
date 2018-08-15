@@ -31,7 +31,6 @@ function Player(xPos) {
   this.winningPlayer = function(player_value) {
     if (player_value == player1 && this.health < 1) {
       score.player1[0] += 1;
-      console.log(score.player1[0]);
     } else if (player_value == player2 && this.health < 1) {
       score.player2[0] += 1;
     }
