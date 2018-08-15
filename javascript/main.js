@@ -13,6 +13,8 @@ function setup() {
   var canvas = createCanvas(720, 400);
   canvas.parent('sketch-holder');
 
+  loadData();
+
   player1 = new Player(width / 4);
   player2 = new Player(width / 1.3);
 }
