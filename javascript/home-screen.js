@@ -1,3 +1,4 @@
+var reset = false;
 function Intro() {
   this.setup = function() {
     var canvas = createCanvas(720, 400);
@@ -15,7 +16,7 @@ function Intro() {
       reset = true;
       this.sceneManager.showScene(Main);
     } else if (key == '2') {
-      this.sceneManager.showScene(Main);
+      this.sceneManager.showScene(Leaderboards);
     } else if (key == '3') {
       this.sceneManager.showScene(GameOver);
     }
