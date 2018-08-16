@@ -32,6 +32,9 @@ function Main() {
 
   this.draw = function() {
     background(230);
+    if (reset) {
+      resetGame();
+    }
 
     var p1 = 20;
     var p2 = p1 + 20;
