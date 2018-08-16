@@ -15,7 +15,7 @@ function Intro() {
       reset = true;
       this.sceneManager.showScene(Main);
     } else if (key == '2') {
-      this.sceneManager.showScene(Main);
+      this.sceneManager.showScene(Leaderboards);
     } else if (key == '3') {
       this.sceneManager.showScene(GameOver);
     }
@@ -24,7 +24,6 @@ function Intro() {
 
   function drawIntroScreen() {
     textSize(15);
-    text("Press key 1 or 2 to select\nhow do you want to operate your mouse:", width / 3, height / 2 - 30);
     text("[1] - click to start", width / 3, height / 2 + 20);
     text("[2] - Click for leaderboards", width / 3, height / 2 + 50);
   }
