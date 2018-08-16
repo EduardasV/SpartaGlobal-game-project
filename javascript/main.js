@@ -18,9 +18,15 @@ var score = {
 simpleStorage.set("player1", player1_score);
 simpleStorage.set("player2", player2_score);
 
+let sprite_sheet;
 function Main() {
 
+  let sprite_data;
+  this.preload = function() {}
+
   this.setup = function() {
+    sprite_sheet = loadImage("images/fighter.png");
+    background_img = loadImage("images/fightscene.png");
     var canvas = createCanvas(720, 400);
     canvas.parent('sketch-holder');
 
@@ -31,12 +37,15 @@ function Main() {
   }
 
   this.draw = function() {
-    background(230);
+    background(240);
+    background(background_img);
+    image(sprite_sheet, 0, 0);
     if (reset) {
       resetGame();
     }
     if (player_dead) {
       player_dead = false;
+      background_img = loadImage("images/homepage.png");
       this.sceneManager.showScene(GameOver);
     }
 
@@ -100,6 +109,7 @@ function Main() {
     }
     if (key === "Escape") {
       fill(0);
+      background_img = loadImage("images/homepage.png");
       this.sceneManager.showScene(Intro);
     }
   }

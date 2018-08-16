@@ -1,12 +1,15 @@
 var reset = false;
+var background_img;
 function Intro() {
   this.setup = function() {
+    background_img = loadImage("images/homepage.png");
     var canvas = createCanvas(720, 400);
     canvas.parent('sketch-holder');
   }
 
   this.draw = function() {
     background(240);
+    background(background_img);
     drawIntroScreen();
 
   }
