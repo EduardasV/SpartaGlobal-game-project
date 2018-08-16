@@ -35,6 +35,10 @@ function Main() {
     if (reset) {
       resetGame();
     }
+    if (player_dead) {
+      player_dead = false;
+      this.sceneManager.showScene(GameOver);
+    }
 
     var player1_hp_width = 200 / (100 / player1.health);
     if (player1_hp_width < 1) 
@@ -88,7 +92,7 @@ function Main() {
   }
 
   this.keyPressed = function() {
-    if (key === " ") {
+    if (key === "g") {
       fist1.push(new Fist(player1.x, player1.y, player2.x));
     }
     if (key === "Shift") {
@@ -96,7 +100,7 @@ function Main() {
     }
     if (key === "Escape") {
       fill(0);
-      this.sceneManager.showScene(Intro);
+      this.sceneManager.showScene(GameOver);
     }
   }
 }
