@@ -5,7 +5,8 @@ function Fist(x, y, enemy_x) {
 
   this.show = function() {
     push();
-    fill(50, 0, 200);
+    fill(0, 0, 0, 0);
+    noStroke();
     if (x > enemy_x) 
       rect(this.x - 40, this.y, this.r, this.r);
     else if (x < enemy_x) 
