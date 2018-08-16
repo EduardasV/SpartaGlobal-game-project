@@ -100,7 +100,7 @@ function Main() {
     }
     if (key === "Escape") {
       fill(0);
-      this.sceneManager.showScene(GameOver);
+      this.sceneManager.showScene(Intro);
     }
   }
 }
