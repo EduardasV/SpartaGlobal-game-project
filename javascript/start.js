@@ -1,7 +1,7 @@
 function setup() {
   createCanvas(720, 400);
 
-  var mgr = new SceneManager();
-  mgr.wire();
-  mgr.showScene(Intro);
+  var scene_manager = new SceneManager();
+  scene_manager.wire();
+  scene_manager.showScene(Intro);
 }

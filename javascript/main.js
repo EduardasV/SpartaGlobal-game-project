@@ -1,24 +1,24 @@
-function Main() {
+var player1;
+var player2;
+var fist1 = [];
+var fist2 = [];
+var player1_score = [];
+var player2_score = [];
+if (simpleStorage.get("player1")) {
+  player1_score = simpleStorage.get("player1");
+  player2_score = simpleStorage.get("player2");
+} else {
+  player1_score = [0, 0];
+  player2_score = [0, 0];
+}
+var score = {
+  "player1": player1_score,
+  "player2": player2_score
+}
+simpleStorage.set("player1", player1_score);
+simpleStorage.set("player2", player2_score);
 
-  var player1;
-  var player2;
-  var fist1 = [];
-  var fist2 = [];
-  var player1_score = [];
-  var player2_score = [];
-  if (simpleStorage.get("player1")) {
-    player1_score = simpleStorage.get("player1");
-    player2_score = simpleStorage.get("player2");
-  } else {
-    player1_score = [0, 0];
-    player2_score = [0, 0];
-  }
-  var score = {
-    "player1": player1_score,
-    "player2": player2_score
-  }
-  simpleStorage.set("player1", player1_score);
-  simpleStorage.set("player2", player2_score);
+function Main() {
 
   this.setup = function() {
     var canvas = createCanvas(720, 400);
@@ -26,6 +26,8 @@ function Main() {
 
     player1 = new Player(width / 4);
     player2 = new Player(width / 1.3);
+    player1.resetHealth();
+    player2.resetHealth();
   }
 
   this.draw = function() {
@@ -93,6 +95,10 @@ function Main() {
     }
     if (key === "Shift") {
       fist2.push(new Fist(player2.x, player2.y, player1.x));
+    }
+    if (key === "Escape") {
+      fill(0);
+      this.sceneManager.showScene(Intro);
     }
   }
 }

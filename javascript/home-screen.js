@@ -12,16 +12,20 @@ function Intro() {
   this.keyPressed = function() {
     // switch the scene
     if (key == '1') {
-      // Invoke the Game scene passing as argument the string '1' or '2'
-      this.sceneManager.showScene(Main, key);
+      reset = true;
+      this.sceneManager.showScene(Main);
+    } else if (key == '2') {
+      this.sceneManager.showScene(Main);
+    } else if (key == '3') {
+      this.sceneManager.showScene(GameOver);
     }
 
   }
-  var value = 0;
+
   function drawIntroScreen() {
-    fill(value);
-    rect(25, 25, 50, 50);
-    this.clicked = function() {}
+    textSize(15);
+    text("Press key 1 or 2 to select\nhow do you want to operate your mouse:", width / 3, height / 2 - 30);
+    text("[1] - click to start", width / 3, height / 2 + 20);
+    text("[2] - Click for leaderboards", width / 3, height / 2 + 50);
   }
-  function mousePressed() {}
 }
