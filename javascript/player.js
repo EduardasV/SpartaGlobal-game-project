@@ -30,20 +30,35 @@ function Player(xPos) {
   
   this.winningPlayer = function(player_value) {
     if (player_value == player1 && this.health < 1) {
-      score.player1[0] += 1;
-    } else if (player_value == player2 && this.health < 1) {
       score.player2[0] += 1;
+      saveScore("player2");
+      simpleStorage.set("winner", "player 2");
+    } else if (player_value == player2 && this.health < 1) {
+      score.player1[0] += 1;
+      saveScore("player1");
+      simpleStorage.set("winner", "player 1");
     }
   }
 
   this.losingPlayer = function(player_value) {
     if (player_value == player1 && this.health < 1) {
       score.player1[1] += 1;
+      saveScore("player1");
     } else if (player_value == player2 && this.health < 1) {
       score.player2[1] += 1;
+      saveScore("player2");
     }
-    if (this.health == 0) {
-      noLoop();
+    if (this.health == 0) {}
+  }
+  this.resetHealth = function() {
+    this.health = 100;
+  }
+
+  function saveScore(key) {
+    if (key == "player1") {
+      simpleStorage.set(key, score.player1);
+    } else if (key == "player2") {
+      simpleStorage.set(key, score.player2);
     }
   }
 
