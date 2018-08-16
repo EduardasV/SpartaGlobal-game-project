@@ -1,5 +1,4 @@
 function Leaderboards() {
-<<<<<<< HEAD
   this.setup = function() {
     var canvas = createCanvas(720, 400);
     canvas.parent('sketch-holder');
@@ -11,7 +10,6 @@ function Leaderboards() {
       textSize(15);
       fill(0);
       text(getKeys[i], width / 4, height / 2.5 + (20 * i));
-      var win_score = simpleStorage.get(getKeys[i]);
       text(win_score[0] + " - " + win_score[1], width / 1.6, height / 2.5 + (20 * i));
     }
   }
@@ -20,8 +18,4 @@ function Leaderboards() {
       this.sceneManager.showScene(Intro);
     }
   }
-=======
-  this.setup = function() {}
-  this.draw = function() {}
->>>>>>> d57885f6fb522ae5f19be2d654b5fbcf159e0da0
 }
