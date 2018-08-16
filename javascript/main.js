@@ -32,11 +32,9 @@ function Main() {
 
   this.draw = function() {
     background(230);
-
-    var p1 = 20;
-    var p2 = p1 + 20;
-    var p3 = p2 + 20;
-    var p4 = p3 + 20;
+    if (reset) {
+      resetGame();
+    }
 
     var player1_hp_width = 200 / (100 / player1.health);
     if (player1_hp_width < 1) 
