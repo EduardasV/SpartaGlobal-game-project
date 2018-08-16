@@ -1,4 +1,5 @@
 function Leaderboards() {
+<<<<<<< HEAD
   this.setup = function() {
     var canvas = createCanvas(720, 400);
     canvas.parent('sketch-holder');
@@ -19,4 +20,8 @@ function Leaderboards() {
       this.sceneManager.showScene(Intro);
     }
   }
+=======
+  this.setup = function() {}
+  this.draw = function() {}
+>>>>>>> d57885f6fb522ae5f19be2d654b5fbcf159e0da0
 }

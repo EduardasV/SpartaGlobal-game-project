@@ -3,8 +3,10 @@ function GameOver() {
     var canvas = createCanvas(720, 400);
     canvas.parent('sketch-holder');
   }
+
   this.draw = function() {
     background(240);
+
     textSize(60);
     text('Game Over', width / 3.5, height / 2.5);
     fill(0);

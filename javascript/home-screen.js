@@ -1,3 +1,4 @@
+var reset = false;
 function Intro() {
   this.setup = function() {
     var canvas = createCanvas(720, 400);

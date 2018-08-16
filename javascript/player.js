@@ -1,3 +1,4 @@
+player_dead = false;
 function Player(xPos) {
   this.x = xPos;
   this.y = height - 100;
@@ -31,12 +32,12 @@ function Player(xPos) {
   this.winningPlayer = function(player_value) {
     if (player_value == player1 && this.health < 1) {
       score.player2[0] += 1;
-      saveScore("player2");
       simpleStorage.set("winner", "player 2");
+      saveScore("player2");
     } else if (player_value == player2 && this.health < 1) {
       score.player1[0] += 1;
-      saveScore("player1");
       simpleStorage.set("winner", "player 1");
+      saveScore("player1");
     }
   }
 
@@ -57,8 +58,10 @@ function Player(xPos) {
   function saveScore(key) {
     if (key == "player1") {
       simpleStorage.set(key, score.player1);
+      player_dead = true;
     } else if (key == "player2") {
       simpleStorage.set(key, score.player2);
+      player_dead = true;
     }
   }
 
