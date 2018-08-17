@@ -23,8 +23,6 @@ var button_pressed_p2 = false;
 
 function Main() {
 
-  this.preload = function() {}
-
   this.setup = function() {
     background_img = loadImage("images/fightscene.png");
     var canvas = createCanvas(720, 400);
@@ -78,6 +76,7 @@ function Main() {
 
     for (var i = 0; i < fist1.length; i++) {
       fist1[i].show();
+      play_sound = true;
       if (fist1[i].hits(player2)) {
         player1.reduceHealth(player2);
         player1.winningPlayer(player2);
