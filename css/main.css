@@ -1,0 +1,14 @@
+.window {
+  text-align: center;
+}
+
+.inside {
+  display: inline-block;
+  width: 32%;
+  float: left;
+}
+
+.instructions {
+  width: 720px;
+  margin: auto;
+}
