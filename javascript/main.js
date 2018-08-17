@@ -18,20 +18,23 @@ var score = {
 simpleStorage.set("player1", player1_score);
 simpleStorage.set("player2", player2_score);
 
-let sprite_sheet;
+var button_pressed_p1 = false;
+var button_pressed_p2 = false;
+
 function Main() {
 
-  let sprite_data;
   this.preload = function() {}
 
   this.setup = function() {
-    sprite_sheet = loadImage("images/fighter.png");
     background_img = loadImage("images/fightscene.png");
     var canvas = createCanvas(720, 400);
     canvas.parent('sketch-holder');
 
     player1 = new Player(width / 4);
     player2 = new Player(width / 1.3);
+    player1.setup(player2);
+    player2.setup(player1);
+
     player1.resetHealth();
     player2.resetHealth();
   }
@@ -39,7 +42,6 @@ function Main() {
   this.draw = function() {
     background(240);
     background(background_img);
-    image(sprite_sheet, 0, 0);
     if (reset) {
       resetGame();
     }
@@ -67,8 +69,12 @@ function Main() {
     //rect (x, y, x.width, y.width )
     rect(510 + (200 - player1_hp_width), 30, player1_hp_width, 30); // Draw white rect using CORNER mode
 
-    player1.show();
-    player2.show();
+    if (!button_pressed_p1) {
+      player1.show(player2);
+    }
+    if (!button_pressed_p2) {
+      player2.show(player1);
+    }
 
     for (var i = 0; i < fist1.length; i++) {
       fist1[i].show();
@@ -89,15 +95,32 @@ function Main() {
       fist2.splice(i, 1);
     }
     if (keyIsDown(RIGHT_ARROW)) {
+      button_pressed_p2 = true;
       player2.move(1);
     } else if (keyIsDown(LEFT_ARROW)) {
+      button_pressed_p2 = true;
       player2.move(-1);
     }
     if (keyIsDown(68)) {
+      button_pressed_p1 = true;
       player1.move(1);
     } else if (keyIsDown(65)) {
+      button_pressed_p1 = true;
       player1.move(-1);
     }
+    if (keyIsDown(16)) {
+      button_pressed_p2 = true;
+      player2.punch();
+    }
+    if (keyIsDown(71)) {
+      button_pressed_p1 = true;
+      player1.punch();
+    }
+  }
+
+  this.keyReleased = function() {
+    button_pressed_p1 = false;
+    button_pressed_p2 = false;
   }
 
   this.keyPressed = function() {

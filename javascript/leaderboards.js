@@ -9,12 +9,13 @@ function Leaderboards() {
     background(240);
     background(background_img);
     var getKeys = simpleStorage.index();
+    fill(255);
     text("Name", width / 4, height / 2.8);
     text("Win - Loss", width / 1.6, height / 2.8);
     for (var i = 0; i < getKeys.length - 1; i++) {
       var win_score = simpleStorage.get(getKeys[i]);
       textSize(15);
-      fill(0);
+      fill(255);
       text(getKeys[i], width / 4, height / 2.2 + (20 * i));
       text(win_score[0] + " - " + win_score[1], width / 1.6, height / 2.2 + (20 * i));
     }

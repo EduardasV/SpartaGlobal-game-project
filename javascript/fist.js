@@ -1,16 +1,16 @@
 function Fist(x, y, enemy_x) {
   this.x = x;
   this.y = y;
-  this.r = 20;
+  this.r = 100;
 
   this.show = function() {
     push();
     fill(0, 0, 0, 0);
     noStroke();
     if (x > enemy_x) 
-      rect(this.x - 40, this.y, this.r, this.r);
+      rect(this.x - 60, this.y, this.r, this.r);
     else if (x < enemy_x) 
-      rect(this.x + 40, this.y, this.r, this.r);
+      rect(this.x + 60, this.y, this.r, this.r);
     pop();
   }
 
