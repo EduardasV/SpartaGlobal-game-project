@@ -1,10 +1,15 @@
 var reset = false;
 var background_img;
+
+function preload() {}
+
 function Intro() {
   this.setup = function() {
     background_img = loadImage("images/homepage.png");
     var canvas = createCanvas(720, 400);
     canvas.parent('sketch-holder');
+
+    background_sound_home.loop();
   }
 
   this.draw = function() {
@@ -17,6 +22,7 @@ function Intro() {
     // switch the scene
     if (key == '1') {
       reset = true;
+      background_sound_home.stop();
       this.sceneManager.showScene(Main);
     } else if (key == '2') {
       background_img = loadImage("images/leaderboard.png");

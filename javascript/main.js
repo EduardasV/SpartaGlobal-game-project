@@ -21,12 +21,17 @@ simpleStorage.set("player2", player2_score);
 var button_pressed_p1 = false;
 var button_pressed_p2 = false;
 var punching_sound;
+var background_sound;
+var background_sound_home;
+
+function preload() {
+  soundFormats('mp3', 'wav');
+  punching_sound = loadSound("Sounds/punching_effect.mp3");
+  background_sound = loadSound("Sounds/fight_scene_song.wav");
+  background_sound_home = loadSound("Sounds/main_loop.wav")
+}
 
 function Main() {
-
-  this.preload = function() {
-    punching_sound = loadSound("Sounds/punching_effect.mp3");
-  }
 
   this.setup = function() {
     background_img = loadImage("images/fightscene.png");
@@ -40,6 +45,7 @@ function Main() {
 
     player1.resetHealth();
     player2.resetHealth();
+    background_sound.loop();
   }
 
   this.draw = function() {
@@ -137,6 +143,8 @@ function Main() {
     }
     if (key === "Escape") {
       fill(0);
+      background_sound.stop();
+      background_sound_home.loop();
       background_img = loadImage("images/homepage.png");
       this.sceneManager.showScene(Intro);
     }

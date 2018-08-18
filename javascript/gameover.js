@@ -18,6 +18,8 @@ function GameOver() {
   }
   this.keyPressed = function() {
     if (key === " ") {
+      background_sound.stop();
+      background_sound_home.loop();
       this.sceneManager.showScene(Intro);
     }
   }
