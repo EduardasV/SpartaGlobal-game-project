@@ -38,9 +38,9 @@ If you are cloning the repository you will have to set up a local server.
 1.  Install [node.js](https://nodejs.org/en/download/)
 2.  Open the terminal (on windows open cmd on admin) and enter the command:
 
-
+```
     npm install -g http-server
-
+```
 Locate the cloned folder of the repository, on the main folder run the command:
 
     http-server
