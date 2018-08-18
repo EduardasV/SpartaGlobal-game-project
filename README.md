@@ -68,6 +68,6 @@ Open a browser then enter `localhost:8080/` inside your browser while the server
 
 ##### Player two:
 
-[LEFT ARROW] - makes player two go to the left
-[RIGHT ARROW] - makes player two go to the right
+[LEFT ARROW] - makes player two go to the left  
+[RIGHT ARROW] - makes player two go to the right  
 [SHIFT] - makes player two punch
