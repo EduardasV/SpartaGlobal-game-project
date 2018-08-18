@@ -24,12 +24,11 @@ var punching_sound;
 
 function Main() {
 
-  function preload() {
+  this.preload = function() {
     punching_sound = loadSound("Sounds/punching_effect.mp3");
   }
 
   this.setup = function() {
-    punching_sound.play();
     background_img = loadImage("images/fightscene.png");
     var canvas = createCanvas(720, 400);
     canvas.parent('sketch-holder');
