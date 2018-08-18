@@ -20,12 +20,16 @@ simpleStorage.set("player2", player2_score);
 
 var button_pressed_p1 = false;
 var button_pressed_p2 = false;
+var punching_sound;
 
 function Main() {
 
-  this.preload = function() {}
+  function preload() {
+    punching_sound = loadSound("Sounds/punching_effect.mp3");
+  }
 
   this.setup = function() {
+    punching_sound.play();
     background_img = loadImage("images/fightscene.png");
     var canvas = createCanvas(720, 400);
     canvas.parent('sketch-holder');
@@ -126,9 +130,11 @@ function Main() {
   this.keyPressed = function() {
     if (key === "g") {
       fist1.push(new Fist(player1.x, player1.y, player2.x));
+      punching_sound.play();
     }
     if (key === "Shift") {
       fist2.push(new Fist(player2.x, player2.y, player1.x));
+      punching_sound.play();
     }
     if (key === "Escape") {
       fill(0);
