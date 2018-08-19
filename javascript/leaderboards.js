@@ -1,5 +1,5 @@
 var background_img;
-function Leaderboards() {
+function leaderboards() {
   this.setup = function() {
     background_img = loadImage("images/leaderboard.png");
     var canvas = createCanvas(720, 400);
@@ -23,7 +23,7 @@ function Leaderboards() {
   this.keyPressed = function() {
     if (key === "Escape") {
       background_img = loadImage("images/homepage.png");
-      this.sceneManager.showScene(Intro);
+      this.sceneManager.showScene(intro);
     }
   }
 }
