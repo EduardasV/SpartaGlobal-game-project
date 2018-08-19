@@ -1,8 +1,6 @@
 var reset = false;
 var background_img;
 
-function preload() {}
-
 function intro() {
   this.setup = function() {
     background_img = loadImage("images/homepage.png");
