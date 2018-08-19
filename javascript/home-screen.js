@@ -1,10 +1,13 @@
 var reset = false;
 var background_img;
-function Intro() {
+
+function intro() {
   this.setup = function() {
     background_img = loadImage("images/homepage.png");
     var canvas = createCanvas(720, 400);
     canvas.parent('sketch-holder');
+
+    background_sound_home.loop();
   }
 
   this.draw = function() {
@@ -17,12 +20,13 @@ function Intro() {
     // switch the scene
     if (key == '1') {
       reset = true;
-      this.sceneManager.showScene(Main);
+      background_sound_home.stop();
+      this.sceneManager.showScene(main);
     } else if (key == '2') {
       background_img = loadImage("images/leaderboard.png");
-      this.sceneManager.showScene(Leaderboards);
+      this.sceneManager.showScene(leaderboards);
     } else if (key == '3') {
-      this.sceneManager.showScene(GameOver);
+      this.sceneManager.showScene(gameOver);
     }
 
   }

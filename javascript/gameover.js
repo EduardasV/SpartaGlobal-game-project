@@ -1,4 +1,4 @@
-function GameOver() {
+function gameOver() {
   this.setup = function() {
     var canvas = createCanvas(720, 400);
     canvas.parent('sketch-holder');
@@ -18,7 +18,9 @@ function GameOver() {
   }
   this.keyPressed = function() {
     if (key === " ") {
-      this.sceneManager.showScene(Intro);
+      background_sound.stop();
+      background_sound_home.loop();
+      this.sceneManager.showScene(intro);
     }
   }
   function player() {

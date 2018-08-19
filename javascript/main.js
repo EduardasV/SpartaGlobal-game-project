@@ -20,10 +20,18 @@ simpleStorage.set("player2", player2_score);
 
 var button_pressed_p1 = false;
 var button_pressed_p2 = false;
+var punching_sound;
+var background_sound;
+var background_sound_home;
 
-function Main() {
+function preload() {
+  soundFormats('mp3', 'wav');
+  punching_sound = loadSound("Sounds/punching_effect.mp3");
+  background_sound = loadSound("Sounds/fight_scene_song.wav");
+  background_sound_home = loadSound("Sounds/main_loop.wav")
+}
 
-  this.preload = function() {}
+function main() {
 
   this.setup = function() {
     background_img = loadImage("images/fightscene.png");
@@ -37,6 +45,7 @@ function Main() {
 
     player1.resetHealth();
     player2.resetHealth();
+    background_sound.loop();
   }
 
   this.draw = function() {
@@ -48,7 +57,7 @@ function Main() {
     if (player_dead) {
       player_dead = false;
       background_img = loadImage("images/homepage.png");
-      this.sceneManager.showScene(GameOver);
+      this.sceneManager.showScene(gameOver);
     }
 
     var player1_hp_width = 200 / (100 / player1.health);
@@ -126,14 +135,18 @@ function Main() {
   this.keyPressed = function() {
     if (key === "g") {
       fist1.push(new Fist(player1.x, player1.y, player2.x));
+      punching_sound.play();
     }
     if (key === "Shift") {
       fist2.push(new Fist(player2.x, player2.y, player1.x));
+      punching_sound.play();
     }
     if (key === "Escape") {
       fill(0);
+      background_sound.stop();
+      background_sound_home.loop();
       background_img = loadImage("images/homepage.png");
-      this.sceneManager.showScene(Intro);
+      this.sceneManager.showScene(intro);
     }
   }
 }
