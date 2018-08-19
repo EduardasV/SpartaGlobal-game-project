@@ -31,7 +31,7 @@ function preload() {
   background_sound_home = loadSound("Sounds/main_loop.wav")
 }
 
-function Main() {
+function main() {
 
   this.setup = function() {
     background_img = loadImage("images/fightscene.png");
@@ -57,7 +57,7 @@ function Main() {
     if (player_dead) {
       player_dead = false;
       background_img = loadImage("images/homepage.png");
-      this.sceneManager.showScene(GameOver);
+      this.sceneManager.showScene(gameOver);
     }
 
     var player1_hp_width = 200 / (100 / player1.health);
@@ -146,7 +146,7 @@ function Main() {
       background_sound.stop();
       background_sound_home.loop();
       background_img = loadImage("images/homepage.png");
-      this.sceneManager.showScene(Intro);
+      this.sceneManager.showScene(intro);
     }
   }
 }

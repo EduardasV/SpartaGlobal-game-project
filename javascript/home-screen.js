@@ -3,7 +3,7 @@ var background_img;
 
 function preload() {}
 
-function Intro() {
+function intro() {
   this.setup = function() {
     background_img = loadImage("images/homepage.png");
     var canvas = createCanvas(720, 400);
@@ -23,12 +23,12 @@ function Intro() {
     if (key == '1') {
       reset = true;
       background_sound_home.stop();
-      this.sceneManager.showScene(Main);
+      this.sceneManager.showScene(main);
     } else if (key == '2') {
       background_img = loadImage("images/leaderboard.png");
-      this.sceneManager.showScene(Leaderboards);
+      this.sceneManager.showScene(leaderboards);
     } else if (key == '3') {
-      this.sceneManager.showScene(GameOver);
+      this.sceneManager.showScene(gameOver);
     }
 
   }

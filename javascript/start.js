@@ -3,5 +3,5 @@ function setup() {
 
   var scene_manager = new SceneManager();
   scene_manager.wire();
-  scene_manager.showScene(Intro);
+  scene_manager.showScene(intro);
 }
