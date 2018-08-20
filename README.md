@@ -64,9 +64,9 @@ Open a browser then enter `localhost:8080/` inside your browser while the server
 
 ##### Player one:
 
-[A] - makes player one go to the left
-[D] - makes player one go to the right
-[G] - makes player one punch
+[A] - makes player one go to the left  
+[D] - makes player one go to the right    
+[G] - makes player one punch   
 
 ##### Player two:
 
