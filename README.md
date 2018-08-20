@@ -31,6 +31,8 @@ My game is a street fighter clone with simple graphics, basic movement and comba
 
 ## How to play
 
+[here for an online version](https://eduardasv.github.io/SpartaGlobal-game-project/)
+
 If you are cloning the repository you will have to set up a local server.
 
 ### node.js
