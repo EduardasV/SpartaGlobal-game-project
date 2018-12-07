@@ -1,6 +1,6 @@
 # SpartaGlobal-game-project
 
-## Scope
+## Scope 
 
 The game includes:
 
