@@ -1,4 +1,4 @@
-# SpartaGlobal-game-project
+# game-project
 
 ## Scope 
 
